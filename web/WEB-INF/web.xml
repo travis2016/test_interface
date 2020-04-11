@@ -23,6 +23,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+
     <servlet-mapping>
         <!--表示哪些请求交给Spring Web MVC处理 -->
         <servlet-name>dispatcher</servlet-name>
