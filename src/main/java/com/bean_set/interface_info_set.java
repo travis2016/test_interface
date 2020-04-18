@@ -1,25 +1,25 @@
 package com.bean_set;
 
 /**
- * author:travissong
- * 对应数据库的表：interface_info
+ * 接口列表
  */
 
-public class interfaceinfo_bean {
-    public int id;
+public class interface_info_set {
+    public int interface_id;
     public String interface_name;
     public String methos;
     public String get_param;
     public String post_param;
-    public String addtime;
+    public String interface_addtime;
     public String add_author;
 
-    public int getId() {
-        return id;
+
+    public int getInterface_id() {
+        return interface_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setInterface_id(int interface_id) {
+        this.interface_id = interface_id;
     }
 
     public String getInterface_name() {
@@ -54,12 +54,12 @@ public class interfaceinfo_bean {
         this.post_param = post_param;
     }
 
-    public String getAddtime() {
-        return addtime;
+    public String getInterface_addtime() {
+        return interface_addtime;
     }
 
-    public void setAddtime(String addtime) {
-        this.addtime = addtime;
+    public void setInterface_addtime(String interface_addtime) {
+        this.interface_addtime = interface_addtime;
     }
 
     public String getAdd_author() {
@@ -70,3 +70,7 @@ public class interfaceinfo_bean {
         this.add_author = add_author;
     }
 }
+
+
+
+
