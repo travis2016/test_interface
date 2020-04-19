@@ -6,6 +6,8 @@ import com.bean_set.interface_info_set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("interfaceservice")
 public class interface_info_impl implements interface_info_service {
 
@@ -16,4 +18,10 @@ public class interface_info_impl implements interface_info_service {
         return interface_daos.insert_interface(interface_insertinfo);
 
     }
+
+    public List<interface_info_set> get_interfacelist(String page,String pagesize) {
+        return interface_daos.get_interfacelist(page,pagesize);
+    }
+
+
 }
