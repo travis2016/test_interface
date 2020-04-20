@@ -14,12 +14,12 @@ public class interface_info_impl implements interface_info_service {
     @Autowired
     public interface_info_dao interface_daos;
 
-    public int insert_idea(interface_info_set interface_insertinfo) {
+    public int insert_interface(interface_info_set interface_insertinfo) {
         return interface_daos.insert_interface(interface_insertinfo);
 
     }
 
-    public List<interface_info_set> get_interfacelist(String page,String pagesize) {
+    public List<interface_info_set> get_interfacelist(int page,int pagesize) {
         return interface_daos.get_interfacelist(page,pagesize);
     }
 

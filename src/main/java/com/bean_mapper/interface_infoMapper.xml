@@ -17,5 +17,15 @@
     </sql>
 
 
+    <select id="get_interfacelist" resultType="com.bean_set.interface_info_set">
+        SELECT <include refid="Base_Column_List" /> FROM interface_info limit #{page},#{pagesize};
+    </select>
+
+    <insert id="insert_interface" useGeneratedKeys="true" keyProperty="interface_id">
+        insert into interface_info (<include refid="Base_Column_List" />)
+        values (#{interface_name,jdbcType=VARCHAR}, #{methos,jdbcType=VARCHAR},
+        #{get_param,jdbcType=VARCHAR}, #{post_param,jdbcType=VARCHAR}, #{interface_addtime,jdbcType=VARCHAR},
+        #{add_author,jdbcType=VARCHAR})
+    </insert>
 
 </mapper>
