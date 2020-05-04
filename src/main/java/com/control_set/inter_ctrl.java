@@ -69,10 +69,33 @@ public class inter_ctrl {
         LOGGER.info("insert_result "+insert_result);
         if(insert_result == 1){
             result_json.element("status","1");
+            result_json.element("msg","添加成功");
         }else{
             result_json.element("status","0");
+            result_json.element("msg","添加失败");
         }
         LOGGER.info("insert_result "+insert_result);
+        return result_json;
+    }
+
+    /**
+     *
+     * @param update_interface
+     * @return 返回更新结果
+     * @throws IOException
+     * 更新接口具体信息
+     */
+    @RequestMapping(value="/update_interface.do",method = {RequestMethod.POST})
+    @ResponseBody
+    public JSONObject update_interface(@RequestBody interface_info_set  update_interface)throws IOException{
+        JSONObject result_json = new JSONObject();
+        interface_info_set element_interface = new interface_info_set();
+        element_interface.setInterface_name(update_interface.getInterface_name());
+        element_interface.setMethods(update_interface.getMethods());
+        element_interface.setGet_param(update_interface.getGet_param());
+        element_interface.setPost_param(update_interface.getPost_param());
+        element_interface.setInterface_updatetime(update_interface.getInterface_updatetime());
+        element_interface.setAdd_author(update_interface.getAdd_author());
         return result_json;
     }
 

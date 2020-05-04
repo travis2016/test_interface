@@ -10,14 +10,15 @@
         <result column="post_param" property="post_param" jdbcType="VARCHAR" />
         <result column="interface_addtime" property="interface_addtime" jdbcType="VARCHAR" />
         <result column="add_author" property="add_author" jdbcType="VARCHAR" />
+        <result column="interface_updatetime" property="interface_updatetime" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Base_Column_List" >
-      interface_id, interface_name, methods,get_param,post_param,interface_addtime,add_author
+      interface_id, interface_name, methods,get_param,post_param,interface_addtime,add_author,interface_updatetime
     </sql>
 
     <sql id="insert_Column_List" >
-      interface_name, methods,get_param,post_param,interface_addtime,add_author
+      interface_name, methods,get_param,post_param,interface_addtime,add_author,interface_updatetime
     </sql>
 
     <select id="get_interfacelist" resultType="com.bean_set.interface_info_set">
@@ -28,7 +29,7 @@
         insert into interface_info (<include refid="insert_Column_List" />)
         values (#{interface_name,jdbcType=VARCHAR}, #{methods,jdbcType=VARCHAR},
         #{get_param,jdbcType=VARCHAR}, #{post_param,jdbcType=VARCHAR}, #{interface_addtime,jdbcType=VARCHAR},
-        #{add_author,jdbcType=VARCHAR})
+        #{add_author,jdbcType=VARCHAR},#{interface_updatetime,jdbcType=VARCHAR})
     </insert>
 
 </mapper>

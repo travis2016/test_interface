@@ -12,6 +12,7 @@ public class interface_info_set {
     public String post_param;
     public String interface_addtime;
     public String add_author;
+    public String interface_updatetime;
 
 
     public int getInterface_id() {
@@ -68,6 +69,14 @@ public class interface_info_set {
 
     public void setAdd_author(String add_author) {
         this.add_author = add_author;
+    }
+
+    public String getInterface_updatetime() {
+        return interface_updatetime;
+    }
+
+    public void setInterface_updatetime(String interface_updatetime) {
+        this.interface_updatetime = interface_updatetime;
     }
 }
 
