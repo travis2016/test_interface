@@ -7,7 +7,7 @@ package com.bean_set;
 public class interface_info_set {
     public int interface_id;
     public String interface_name;
-    public String methos;
+    public String methods;
     public String get_param;
     public String post_param;
     public String interface_addtime;
@@ -30,12 +30,12 @@ public class interface_info_set {
         this.interface_name = interface_name;
     }
 
-    public String getMethos() {
-        return methos;
+    public String getMethods() {
+        return methods;
     }
 
-    public void setMethos(String methos) {
-        this.methos = methos;
+    public void setMethods(String methods) {
+        this.methods = methods;
     }
 
     public String getGet_param() {

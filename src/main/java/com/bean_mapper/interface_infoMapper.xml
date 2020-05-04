@@ -5,7 +5,7 @@
     <resultMap id="requireMap" type="com.bean_set.interface_info_set" >
         <id column="interface_id" property="interface_id" jdbcType="INTEGER" />
         <result column="interface_name" property="interface_name" jdbcType="VARCHAR" />
-        <result column="methos" property="methos" jdbcType="VARCHAR" />
+        <result column="methods" property="methods" jdbcType="VARCHAR" />
         <result column="get_param" property="get_param" jdbcType="VARCHAR" />
         <result column="post_param" property="post_param" jdbcType="VARCHAR" />
         <result column="interface_addtime" property="interface_addtime" jdbcType="VARCHAR" />
@@ -13,17 +13,20 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-      interface_id, interface_name, methos,get_param,post_param,interface_addtime,add_author
+      interface_id, interface_name, methods,get_param,post_param,interface_addtime,add_author
     </sql>
 
+    <sql id="insert_Column_List" >
+      interface_name, methods,get_param,post_param,interface_addtime,add_author
+    </sql>
 
     <select id="get_interfacelist" resultType="com.bean_set.interface_info_set">
         SELECT <include refid="Base_Column_List" /> FROM interface_info limit #{page},#{pagesize};
     </select>
 
     <insert id="insert_interface" useGeneratedKeys="true" keyProperty="interface_id">
-        insert into interface_info (<include refid="Base_Column_List" />)
-        values (#{interface_name,jdbcType=VARCHAR}, #{methos,jdbcType=VARCHAR},
+        insert into interface_info (<include refid="insert_Column_List" />)
+        values (#{interface_name,jdbcType=VARCHAR}, #{methods,jdbcType=VARCHAR},
         #{get_param,jdbcType=VARCHAR}, #{post_param,jdbcType=VARCHAR}, #{interface_addtime,jdbcType=VARCHAR},
         #{add_author,jdbcType=VARCHAR})
     </insert>

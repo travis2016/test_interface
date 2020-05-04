@@ -8,6 +8,7 @@ import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,7 +45,7 @@ public class inter_ctrl {
             LOGGER.info("element_interface========"+element_interface.getInterface_name());
             JSONObject element_interface_json = new JSONObject();
             element_interface_json.element("interface_name",element_interface.getInterface_name());
-            element_interface_json.element("methods",element_interface.getMethos());
+            element_interface_json.element("methods",element_interface.getMethods());
             interface_array.element(i,element_interface_json);
         }
         interface_json.element("list",interface_array);
@@ -54,21 +55,24 @@ public class inter_ctrl {
 
     @RequestMapping(value="/insert_interface.do",method = {RequestMethod.POST})
     @ResponseBody
-    public JSONObject insert_interface(HttpServletRequest request)throws IOException{
-        post_paramutil post_paramutil = new post_paramutil();
+    public JSONObject insert_interface(@RequestBody interface_info_set  insert_interface)throws IOException{
         JSONObject result_json = new JSONObject();
-        JSONObject postString = JSONObject.fromObject(post_paramutil.getRequestPostString(request));
-        String post_param = postString.getString("post_param");
+        LOGGER.info("post_json begin"+insert_interface.getInterface_name());
         interface_info_set element_interface = new interface_info_set();
-        element_interface.setInterface_name(postString.getString("interface_name"));
-        element_interface.setMethos(postString.getString("method"));
-        element_interface.setGet_param(postString.getString("get_param"));
-        element_interface.setPost_param(postString.getString("post_param"));
-        element_interface.setInterface_addtime(postString.getString("interface_addtime"));
-        element_interface.setAdd_author(postString.getString("add_author"));
-        interface_service.insert_interface(element_interface);
-        LOGGER.info("postString=="+postString);
-
+        element_interface.setInterface_name(insert_interface.getInterface_name());
+        element_interface.setMethods(insert_interface.getMethods());
+        element_interface.setGet_param(insert_interface.getGet_param());
+        element_interface.setPost_param(insert_interface.getPost_param());
+        element_interface.setInterface_addtime(insert_interface.getInterface_addtime());
+        element_interface.setAdd_author(insert_interface.getAdd_author());
+        int insert_result = interface_service.insert_interface(element_interface);
+        LOGGER.info("insert_result "+insert_result);
+        if(insert_result == 1){
+            result_json.element("status","1");
+        }else{
+            result_json.element("status","0");
+        }
+        LOGGER.info("insert_result "+insert_result);
         return result_json;
     }
 
