@@ -90,15 +90,14 @@ public class inter_ctrl {
     public JSONObject update_interface(@RequestBody interface_info_set  update_interface)throws IOException{
         JSONObject result_json = new JSONObject();
         interface_info_set element_interface = new interface_info_set();
-        /*element_interface.setInterface_name(update_interface.getInterface_name());*/
+        element_interface.setInterface_name(update_interface.getInterface_name());
         element_interface.setMethods(update_interface.getMethods());
         element_interface.setInterface_id(update_interface.getInterface_id());
-        /*element_interface.setGet_param(update_interface.getGet_param());
+        element_interface.setGet_param(update_interface.getGet_param());
         element_interface.setPost_param(update_interface.getPost_param());
         element_interface.setInterface_updatetime(update_interface.getInterface_updatetime());
-        element_interface.setAdd_author(update_interface.getAdd_author());*/
-        LOGGER.info("element_interface name == "+element_interface.getInterface_name());
-        LOGGER.info("element_interface id == "+element_interface.getInterface_id());
+        element_interface.setAdd_author(update_interface.getAdd_author());
+        LOGGER.info("element_interface  == "+element_interface.toString());
         int update_result = interface_service.update_interface(element_interface);
         if(update_result == 1){
             result_json.element("status","1");
