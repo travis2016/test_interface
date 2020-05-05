@@ -34,16 +34,13 @@
     </insert>
 
     <update id="update_interface" parameterType="com.bean_set.interface_info_set">
-        update interface_info
-           <trim prefix="set" suffixOverrides=",">
-        <if test="interface_name != null">interface_name=#{interface_name,jdbcType=VARCHAR},</if>
-        <if test="methods != null">methods=#{methods,jdbcType=VARCHAR},</if>
-        <if test="get_param != null">get_param=#{get_param,jdbcType=VARCHAR},</if>
-        <if test="post_param != null">post_param=#{post_param,jdbcType=VARCHAR},</if>
-        <if test="add_author != null">add_author=#{add_author,jdbcType=VARCHAR},</if>
-        <if test="interface_updatetime != null">interface_updatetime=#{interface_updatetime,jdbcType=VARCHAR},</if>
-        </trim>
-    WHERE interface_id=#{interface_id,jdbcType=INTEGER};
+        update interface_info SET <if test="interface_name != null">interface_name=#{interface_name},</if>
+        <if test="methods != null">methods=#{methods},</if>
+        <if test="get_param != null">get_param=#{get_param},</if>
+        <if test="post_param != null">post_param=#{post_param},</if>
+        <if test="add_author != null">add_author=#{add_author},</if>
+        <if test="interface_updatetime != null">interface_updatetime=#{interface_updatetime}</if>
+         WHERE interface_id=#{interface_id}
     </update>
 
 </mapper>

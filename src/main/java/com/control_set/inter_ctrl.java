@@ -101,10 +101,10 @@ public class inter_ctrl {
         int update_result = interface_service.update_interface(element_interface);
         if(update_result == 1){
             result_json.element("status","1");
-            result_json.element("msg","添加成功");
+            result_json.element("msg","修改成功");
         }else{
             result_json.element("status","0");
-            result_json.element("msg","添加失败");
+            result_json.element("msg","修改失败");
         }
         LOGGER.info("update_result "+update_result);
         return result_json;
