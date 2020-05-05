@@ -13,6 +13,7 @@ public class interface_info_set {
     public String interface_addtime;
     public String add_author;
     public String interface_updatetime;
+    public int interface_status;
 
 
     public int getInterface_id() {
@@ -77,6 +78,14 @@ public class interface_info_set {
 
     public void setInterface_updatetime(String interface_updatetime) {
         this.interface_updatetime = interface_updatetime;
+    }
+
+    public int getInterface_status() {
+        return interface_status;
+    }
+
+    public void setInterface_status(int interface_status) {
+        this.interface_status = interface_status;
     }
 }
 

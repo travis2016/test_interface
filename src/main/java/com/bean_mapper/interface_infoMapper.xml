@@ -11,6 +11,7 @@
         <result column="interface_addtime" property="interface_addtime" jdbcType="VARCHAR" />
         <result column="add_author" property="add_author" jdbcType="VARCHAR" />
         <result column="interface_updatetime" property="interface_updatetime" jdbcType="VARCHAR" />
+        <result column="interface_status" property="interface_status" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="Base_Column_List" >
@@ -22,7 +23,7 @@
     </sql>
 
     <select id="get_interfacelist" resultType="com.bean_set.interface_info_set">
-        SELECT <include refid="Base_Column_List" /> FROM interface_info limit #{page},#{pagesize};
+        SELECT <include refid="Base_Column_List" /> FROM interface_info where interface_status in(1) limit #{page},#{pagesize};
     </select>
 
     <insert id="insert_interface" useGeneratedKeys="true" keyProperty="interface_id">
