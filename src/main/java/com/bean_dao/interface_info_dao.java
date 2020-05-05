@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface interface_info_dao {
      int insert_interface(interface_info_set interface_insert);
-
      List<interface_info_set> get_interfacelist(@Param("page") int page,@Param("pagesize") int pagesize);
+     int update_interface(interface_info_set interface_insert);
+
 }
