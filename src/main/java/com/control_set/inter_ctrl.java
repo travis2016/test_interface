@@ -75,7 +75,7 @@ public class inter_ctrl {
             result_json.element("msg","添加失败");
         }
         LOGGER.info("insert_result "+insert_result);
-        return result_json;
+        return result_json;  //
     }
 
     /**
